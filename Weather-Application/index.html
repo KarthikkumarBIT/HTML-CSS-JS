@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en-in">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Application</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-main-parent">
+            <div class="search-bar-div">
+                <button class="location-btn" id="get-location">
+                    <i class="fa-solid fa-location-dot"></i>
+                </button>
+                <input type="text" placeholder="Dharapuram" class="search-bar">
+                <label class="switch">
+                    <input type="checkbox" id="unitToggle">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="left-main">
+                <div class="content">
+                    <h1 id="temperature-data">None</h1>
+                    <h2 id="description-data">------</h2>
+                    <p id="detailed-desc">----------</p>
+                </div>
+
+                <div class="mini-content-parent">
+                    <div class="mini-content">
+                        <h3>FEELS LIKE</h3>
+                        <p class="data" id="feelslike">---</p>
+                        <p>Humidity is making everyone feel like this</p>
+                    </div>
+                    <div class="mini-content">
+                        <h3>HUMIDITY</h3>
+                        <p class="data" id="humidity">---</p>
+                        <p>Your sweat has nowhere to go</p>
+                    </div>
+                    <div class="mini-content">
+                        <h3>PRECIPITATION</h3>
+                        <p class="data" id="precipitation">---</p>
+                        <p>Maybe carry an umbrella. Maybe not</p>
+                    </div>
+                    <div class="mini-content">
+                        <h3>WIND SPEEDS</h3>
+                        <p class="data" id="windspeed">----</p>
+                        <p>A gentle breeze or nature's slap — you decide</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-main">
+            <div class="h-forecast">
+                <div class="h-forecast-heading">    
+                    <i class="fa-regular fa-clock"></i>
+                    <h3>HOURLY FORECAST</h3>
+                </div>
+                <hr>
+                <div class="hourly-scroll">
+                    <div class="timely-update now">
+                        <p class="time">---</p>
+                        <p class="temp">---</p>
+                        <i class="wi wi-night-snow"></i>
+                    </div>
+                    <div class="timely-update">
+                        <p class="time">---</p>
+                        <p class="temp">---</p>
+                        <i class="wi wi-day-rain"></i>
+                    </div>
+                    <div class="timely-update">
+                        <p class="time">---</p>
+                        <p class="temp">---</p>
+                        <i class="wi wi-day-rain"></i>
+                    </div>
+                    <div class="timely-update">
+                        <p class="time">---</p>
+                        <p class="temp">---</p>
+                        <i class="wi wi-day-rain"></i>
+                    </div>
+                    <div class="timely-update">
+                        <p class="time">---</p>
+                        <p class="temp">---</p>
+                        <i class="wi wi-day-rain"></i>
+                    </div>
+                    <div class="timely-update">
+                        <p class="time">---</p>
+                        <p class="temp">---</p>
+                        <i class="wi wi-day-rain"></i>
+                    </div>
+                    <div class="timely-update">
+                        <p class="time">---</p>
+                        <p class="temp">---</p>
+                        <i class="wi wi-day-rain"></i>
+                    </div>
+                    <div class="timely-update">
+                        <p class="time">---</p>
+                        <p class="temp">---</p>
+                        <i class="wi wi-day-rain"></i>
+                    </div>
+                    <div class="timely-update">
+                        <p class="time">---</p>
+                        <p class="temp">---</p>
+                        <i class="wi wi-night-snow"></i>
+                    </div>
+                    <div class="timely-update">
+                        <p class="time">---</p>
+                        <p class="temp">---</p>
+                        <i class="wi wi-night-snow"></i>
+                    </div>
+                    <div class="timely-update">
+                        <p class="time">---</p>
+                        <p class="temp">---</p>
+                        <i class="wi wi-night-snow"></i>
+                    </div>
+                    <div class="timely-update">
+                        <p class="time">---</p>
+                        <p class="temp">---</p>
+                        <i class="wi wi-night-snow"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="d-forecast">
+                <div class="d-forecast-heading">
+                    <i class="fa-regular fa-calendar"></i>
+                    <h3>DAILY FORECAST</h3>
+                </div>
+                <hr>
+                <div class="daily-scroll">
+                    <div class="daily-update today">
+                        <div class="daily-update-left">
+                            <p class="day">None</p>
+                            <p class="date">---</p>
+                            <p class="temp">---</p>
+                        </div>
+                        <div class="daily-update-right">
+                            <p class="situation">----</p>
+                            <i class="wi wi-night-snow"></i>
+                        </div>
+                    </div>
+                    <div class="daily-update">
+                        <div class="daily-update-left">
+                            <p class="day">---</p>
+                            <p class="date">---</p>
+                            <p class="temp">---</p>
+                        </div>
+                        <div class="daily-update-right">
+                            <p class="situation">---</p>
+                            <i class="wi wi-night-snow"></i>
+                        </div>
+                    </div>
+                    <div class="daily-update">
+                        <div class="daily-update-left">
+                            <p class="day">---</p>
+                            <p class="date">---</p>
+                            <p class="temp">---</p>
+                        </div>
+                        <div class="daily-update-right">
+                            <p class="situation">---</p>
+                            <i class="wi wi-night-snow"></i>
+                        </div>
+                    </div>
+                    <div class="daily-update">
+                        <div class="daily-update-left">
+                            <p class="day">---</p>
+                            <p class="date">---</p>
+                            <p class="temp">---</p>
+                        </div>
+                        <div class="daily-update-right">
+                            <p class="situation">---</p>
+                            <i class="wi wi-night-snow"></i>
+                        </div>
+                    </div>
+                    <div class="daily-update">
+                        <div class="daily-update-left">
+                            <p class="day">---</p>
+                            <p class="date">---</p>
+                            <p class="temp">---</p>
+                        </div>
+                        <div class="daily-update-right">
+                            <p class="situation">---</p>
+                            <i class="wi wi-night-snow"></i>
+                        </div>
+                    </div>
+                    <div class="daily-update">
+                       <div class="daily-update-left">
+                            <p class="day">---</p>
+                            <p class="date">---</p>
+                            <p class="temp">---</p>
+                        </div>
+                        <div class="daily-update-right">
+                            <p class="situation">---</p>
+                            <i class="wi wi-night-snow"></i>
+                        </div>
+                    </div>
+                    <div class="daily-update">
+                        <div class="daily-update-left">
+                            <p class="day">---</p>
+                            <p class="date">---</p>
+                            <p class="temp">---</p>
+                        </div>
+                        <div class="daily-update-right">
+                            <p class="situation">---</p>
+                            <i class="wi wi-night-snow"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
