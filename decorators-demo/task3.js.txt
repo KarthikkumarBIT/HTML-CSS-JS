@@ -1,0 +1,42 @@
+function logPerformance(target,property,descriptor){
+        let original=descriptor.value;
+        descriptor.value=function(){
+            let srt=performance.now();
+
+            let result=original.apply(this);
+            if(result instanceof Promise){
+                result.then(()=>{
+                    console.log(`The program has been executed for +${(performance.now() -srt).toFixed(2)} milliseconds`);
+                });
+            }
+            else{
+                console.log(`The program has been executed for +${(performance.now() -srt).toFixed(2)} milliseconds`);
+            }
+        }
+        return descriptor;
+    }
+
+class Process{
+
+    @logPerformance
+    syncProcessFunction(){
+        for(let i=0;i<1000;i++){
+            console.log(`hello, world printing nth time.`);
+        }
+        console.log("Running Synchronous program.");
+    }
+    
+    @logPerformance
+    async asyncProcessFunction(){
+        await new Promise(resolve=>{
+            setTimeout(()=>{
+                resolve("promise resolved after 10 seconds...")},10000
+            )
+        });
+        console.log("Running Asynchronous program.");
+    }
+}
+
+let p1=new Process();
+p1.syncProcessFunction();
+p1.asyncProcessFunction();

@@ -1,0 +1,52 @@
+function limitCalls(limit){
+    let callCount=Symbol("callCount");
+
+    return function(target,property,descriptor){
+
+        let original=descriptor.value;
+        descriptor.value=function(){
+            
+            if(!this.callCount) this.callCount=0;
+            this.callCount++;
+            
+            if(this.callCount>limit){
+                throw new Error("call limit reached...");
+            }
+            
+            console.log("called "+this.callCount+" times from, Max limit:"+limit);
+            return original.apply(this);
+        }
+        return descriptor;
+    }
+}
+
+class Report{
+    
+    @limitCalls(3)
+    downloadReport(){
+        console.log("downloading report....");
+    }
+
+    @limitCalls(2)
+    readReport(){
+        console.log("reading report.....")
+    }
+}
+
+let r1=new Report();
+let r2=new Report();
+try{
+r1.downloadReport();
+r1.downloadReport();
+r1.downloadReport();
+r2.downloadReport();
+r2.downloadReport();
+r1.readReport();
+r1.readReport();
+r2.readReport();
+r2.readReport();
+r2.readReport();
+}
+catch(e){
+    console.log(e);
+}
