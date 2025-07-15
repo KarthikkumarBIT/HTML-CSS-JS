@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-in">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body{
+            background-color: aliceblue;
+        }
+        .container{
+            margin-top: 250px;
+            text-align: center;
+        }
+        button{
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color:rgb(80, 169, 247);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: #84b6ec;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Home Page</h1>
+        <button id="log-out">Log Out</button>
+    </div>
+    <script>
+        let user=localStorage.getItem('user');
+        if (!user) {
+        window.location.replace("index.html");
+        } else {
+        user=JSON.parse(user);
+        const welcomeElement = document.createElement("p");
+        welcomeElement.textContent = `Logged in as: ${user.email}`;
+        document.querySelector(".container").appendChild(welcomeElement);
+        
+        const log_out=document.getElementById('log-out');
+
+        log_out.addEventListener('click',(event)=>{
+            localStorage.removeItem("user");
+            window.location.replace("index.html");
+        });
+    }
+    </script>
+</body>
+</html>

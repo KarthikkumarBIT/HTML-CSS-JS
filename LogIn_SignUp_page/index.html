@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-in">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login / Sign Up</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  
+  <script>
+    let user=localStorage.getItem('user');
+    user=JSON.parse(user);
+    if(user && user.loggedIn){
+      window.location.replace("home.html");
+    }
+  </script>
+
+</head> 
+<body>
+  <div id="container">
+    <div class="form-title">Login / Sign Up Page</div>
+    <form id="login-form">
+      <div class="form-input">
+        <label for="name">Email ID</label>
+        <input type="text" name="email" id="name" 
+        required placeholder="karthikkumar@gmail.com" value="karthikkumar@gmail.com"/>
+        <small id="inc-email" style="display:none;color:red">
+          Enter a valid email in tha above format</small>
+      </div>  
+
+      <div class="form-input">
+        <label for="password">Password</label>
+        <input type="password" name="password" 
+        required id="password" placeholder="**********" value="Welcome@123"/>
+        <small id="inc-pass" style="display:none;color:red">
+          [Min-length(8), Atleast(1 Special char,1 number,1 Capital & small letter)]</small>
+      </div>
+
+      <div class="captcha">
+
+        <label for="captcha-input">Enter the Captcha</label>
+
+        <div class="captcha-row">
+          <input type="text" name="captcha-input" required 
+          id="captcha-input" placeholder="Enter the captcha" />
+          <div class="preview" id="captcha-box"></div>
+
+          <button type="button" class="btn-refresh" id="btn-refresh" title="Refresh Captcha">
+            <i class="fa fa-refresh"></i>
+          </button>
+        </div>
+        <small id="cap-inc" style="display:none;color:red">
+          Enter the captcha correctly</small>
+      </div>
+      <div id="btn-submit">
+        <button type="submit" id="submit-btn">Log In</button>
+      </div>
+    </form>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
