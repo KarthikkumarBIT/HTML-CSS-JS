@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-in">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="left-container">
+        <div class="container1">
+            <form id="cartform">
+                <h1>Add Items to Cart</h1>
+                <div class="form-group">
+                    <label for="itemName">Item Name:</label>
+                    <input type="text" id="itemName">
+                </div>
+                <div class="form-group">
+                    <label for="itemPrice">Item Price:</label>
+                    <input type="number" id="itemPrice" min="1">
+                </div>
+                <div class="form-btn">
+                    <button type="button" id="addBtn">Add to cart</button>
+                    <button type="reset">Reset</button>
+                </div>
+            </form>
+        </div>
+        <div id="cartReceipt">
+            <details>
+                <summary>Receipt</summary>
+                <div id="receiptLog"></div>
+            </details>
+        </div>
+    </div>
+    <div class="container2">
+        <h1>My Cart</h1>
+        <table id="cartTable">
+            <thead>
+                <tr>
+                    <th>Item no</th>
+                    <th>Item Name</th>
+                    <th>Item Price</th>
+                </tr>
+            </thead>
+            <tbody class="tableBody">
+            </tbody>
+        </table>
+        <div id="cartTotals">
+            <p>Subtotal: ₹<span id="subtotal">0</span></p>
+            <p>Discount (10%): ₹<span id="discount">0</span></p>
+            <p>Tax (5%): ₹<span id="tax">0</span></p>
+            <hr>
+            <p><strong>Total: ₹</strong><strong><span id="total">0</span></strong></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
